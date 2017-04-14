@@ -1,0 +1,62 @@
+This package requires an OpenCL implementation to be
+installed. 
+
+OpenCL is a royalty-free standard (http://www.khronos.org/opencl/) 
+and all the major GPU vendors provide their own implementations of
+the standard. 
+
+In order to use this package you need to:
+
+1. Install OpenCL supported GPU drivers
+	
+If you installed the drivers in the last few years, you do not
+need to install new drivers. If you have not or just want to be 
+sure, find the latest drivers for your GPU and install them. 
+
+2. Install the OpenCL SDK
+
+NVIDIA: 
+	
+Install the NVIDIA Toolkit. It can be found here: 
+https://developer.nvidia.com/cuda-downloads 
+
+AMD: 
+
+Install the AMD APP SDK. It can be found here: 
+http://developer.amd.com/appsdk
+
+3. Set paths to library and include folder
+
+On Unix systems you can probably skip this step. On Windows this
+step is mandatory. This can be done in R using the Sys.setenv. 
+If possible, run R or RStudio as administrator/superuser. 
+
+LIBRARY PATH: 
+
+This is the location of the OpenCL.lib file. On Windows, the 
+default folder for this file when using AMD would be 
+C:/Program Files (x86)/AMD APP SDK/3.0/lib/x86_64 on a 64-bit system
+or C:/Program Files/AMD APP SDK/3.0/lib/x86 on a 32-bit system. 
+If you are using NVIDIA, the default folder on a 64-bit system would be 
+C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v8.0/lib/x64
+while the default folder on a 32-bit system would be
+C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v8.0/lib/Win32
+
+INCLUDE PATH: 
+
+This is the location of the CL folder that includes CL.h file. On Windows,
+the default folder for this file when using AMD would be 
+C:/Program Files (x86)/AMD APP SDK/3.0/include
+If you are using NVIDIA, the default folder would be 
+C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v8.0/include
+
+
+After you have identified both folders run the following commands in R:
+
+Library path: 
+Sys.setenv(OPENCL_LIB = "path/to/OpenCL/library/files")
+Include path: 
+Sys.setenv(OPENCL_INCL = "path/to/OpenCL/include/files")
+
+If you changed the default installation path, change the folder accordingly. 
+The folder separator should be "/"" instead of "\"

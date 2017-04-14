@@ -1,0 +1,8 @@
+# Tell R to load the shared object <bayesCL.so>.
+useDynLib("bayesCL", .registration = TRUE)
+importFrom("stats", "var")
+#Define which functions people can see.
+export(rpg, prepare, mlr, lasso)
+
+
+
